@@ -1,0 +1,37 @@
+<div>Dodavanje slike</div>
+
+<input id="url" type="text" placeholder="Unesite URL">
+<input id="isVideo" type="checkbox">Da li je video?</input>
+<button id="submit"role="button" type="submit">Potvrdi</button>
+
+<script>
+    $(document).ready(function(){
+        $('#submit').click(function(event) {
+            event.preventDefault();
+            
+            $.ajax({
+                url: '/add',
+                type: 'POST',
+                cache: false,
+                data: {
+                    url: document.getElementById("url").value,
+                    isVideo: document.getElementById("isVideo").checked
+                }, 
+                success: function(data){
+                    $.toast({
+                        type: "success",
+                        title: data.message,
+                        delay: 5000,
+                    });
+                },
+                error: function(jqXHR, textStatus, err) {
+                    $.toast({
+                        type: "error",
+                        title: jqXHR.responseJSON.message,
+                        delay: 5000,
+                    });
+                }
+            });
+        });
+    });
+</script>
