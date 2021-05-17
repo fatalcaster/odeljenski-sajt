@@ -19,7 +19,7 @@ router.post("/signin", async (req, res) => {
             jwt.sign({ password }, tokenSecret, { expiresIn: 86400 }, (err, token) => {
                 if (err) throw err;
                 res.cookie('auth', token);
-                res.status(200).json({ redirect: '/user' });
+                res.status(200).json({ redirect: '/add' });
             });
             console.log("Neko se prijavio.");
         }
@@ -36,9 +36,9 @@ router.post("/signin", async (req, res) => {
 router.get("/logout", auth, async (req, res) => {
     try {
         res.cookie('auth', null);
-        res.status(200).json({ redirect: '/user' });
+        res.status(200).json({ redirect: '/add' });
     } catch (e) {
-        res.status(200).json({ redirect: '/user' });
+        res.status(200).json({ redirect: '/add' });
     }
 });
 

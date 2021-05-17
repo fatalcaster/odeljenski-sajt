@@ -14,7 +14,7 @@ router.get("/login", async (req, res) => {
     res.render(path.join(__dirname, "..", "views", "login.ejs"));
 });
 
-router.post("/add", auth, async (req, res) => {
+router.post("/addimage", auth, async (req, res) => {
     try {
         const { url, isVideo } = req.body;
 

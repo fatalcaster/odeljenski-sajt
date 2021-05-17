@@ -10,7 +10,7 @@
             event.preventDefault();
             
             $.ajax({
-                url: '/add',
+                url: '/addimage',
                 type: 'POST',
                 cache: false,
                 data: {
@@ -18,18 +18,10 @@
                     isVideo: document.getElementById("isVideo").checked
                 }, 
                 success: function(data){
-                    $.toast({
-                        type: "success",
-                        title: data.message,
-                        delay: 5000,
-                    });
+                    alert(data.message);
                 },
                 error: function(jqXHR, textStatus, err) {
-                    $.toast({
-                        type: "error",
-                        title: jqXHR.responseJSON.message,
-                        delay: 5000,
-                    });
+                    alert(jqXHR.responseJSON.message);
                 }
             });
         });

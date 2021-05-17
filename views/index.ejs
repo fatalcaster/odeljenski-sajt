@@ -1,4 +1,33 @@
-<% for(var i = 0; i < images.length; i++) { %>
-    <img src="<%-images[i].url %>"></img>
-<% } %> 
-    
+<div class="image-section">
+    <div class="image-section-border">
+        <% for(var i = 0; i < images.length; i += 9) { %>
+            <div class="module-border-wrap">
+                <div class="image-container">
+                    <div class="image-border">
+                        <% for(var j = i; j < i + 9 && j < images.length; j++) { %>
+                            <% if(images[j].isVideo) { %>
+                                <div class="image-frame">
+                                    <a href="<%-images[j].url%>" class="video">
+                                        <!--<img src="<%-images[j].url%>" type="video/mp4"></img>-->
+                                        <div style="position: relative;">
+                                            <img src="https://www.pngkey.com/png/full/179-1792540_dior-white-transparent-play-button.png" style="transform: scale(0.5); z-index: 1; position: absolute;">
+                                            <video>
+                                                <source src="<%-images[j].url%>#t=0.1" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                    </a>
+                                </div>
+                            <% } else { %>
+                                <div class="image-frame">
+                                    <a href="<%-images[j].url%>">
+                                        <img src="<%-images[j].url%>" />
+                                    </a>
+                                </div>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

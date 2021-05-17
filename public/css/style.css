@@ -21,6 +21,9 @@ body {
 }
 
 .image-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
     justify-content: center;
     align-self: center;
     width: clamp(20rem, 80%, 1200px);
@@ -39,10 +42,9 @@ body {
     min-height: 21rem;
     width: 21rem;
     background-color: rgba(30, 30, 30, 0.6);
-    border-radius: 9%;
+    border-radius: 7%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .image-border {
@@ -70,22 +72,24 @@ body {
 }
 
 .module-border-wrap {
-    padding: 1rem;
     position: relative;
-    background: linear-gradient(to left, #743ad5, #d53a9d);
-    padding: 3px;
+
+    border: 0.5rem solid transparent;
     border-radius: 9%;
+
+    border-right-color: #743ad5;
+    border-left-color: #d53a9d;
+    border-top-color: #743ad5;
+    border-bottom-color: #d53a9d;
+    
     margin: 1rem;
     transition: all 0.2s ease-in-out;
 }
 
-footer {
-    flex-shrink: 0;
-}
 
 @media (min-width: 40em) {
     .module-border-wrap:hover {
-        transform: scale(1.05);
+        transform: scale(1.07);
         cursor: pointer;
     }
 }

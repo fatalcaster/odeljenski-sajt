@@ -26,17 +26,17 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("layout", "layouts/layout");
 
-app.get("/css/toast.min.css", (req, res) => {
-    res.sendFile(__dirname + '/views/css/toast.min.css');
-});
-
-app.get("/js/toast.min.js", (req, res) => {
-    res.sendFile(__dirname + '/views/js/toast.min.js');
-});
+app.use(express.static('public'));
 
 // Routes
 app.use("/", indexRouter);
-app.use("/user", userRouter);
+app.use("/add", userRouter);
+
+// 404
+app.get('*', function(req, res){
+    res.status(404).render( __dirname + "/views/404.ejs", { errCode: 404, errMessage: "Page not found" });
+});
 
 // Server
 app.listen(process.env.PORT || 3000);
+
