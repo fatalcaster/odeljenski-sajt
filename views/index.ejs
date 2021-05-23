@@ -8,7 +8,6 @@
                     <% if(images[j].isVideo) { %>
                     <div class="image-frame">
                         <a href="<%-images[j].url%>" class="video">
-                            <!--<img src="<%-images[j].url%>" type="video/mp4"></img>-->
                             <div style="position: relative">
                                 <img
                                     src="https://www.pngkey.com/png/full/179-1792540_dior-white-transparent-play-button.png"
@@ -30,7 +29,7 @@
                     <% } else { %>
                     <div class="image-frame">
                         <a href="<%-images[j].url%>">
-                            <img loading="lazy" src="<%-images[j].url%>" />
+                            <img src="<%-images[j].url%>" />
                         </a>
                     </div>
                     <% } %> <% } %>
